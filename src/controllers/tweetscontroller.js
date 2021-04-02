@@ -39,15 +39,17 @@ exports.findAllTweets=(request,response)=>{
  
 
     // .............
-    // exports.findUserTweets=(request,response)=>{
-        // const {username}=request.params.username
-        // tweetModel.getUserTweets(username,(error,result)=>{
-            // if (error){
-                // response.send(error.massege)
-            // }
-        //    
+    exports.findUserTweets=(request,response)=>{
+         const username=request.user.username
+         const userCity=request.user.city
+        console.log(request.user.city)
+        tweetModel.getUserTweets(username,(error,mytweet)=>{
+            if (error){
+                response.send(error.massege)
+             }
+            
             // render vers le viwe ejs avec le les tweets
-            // response.render("profile.ejs",{tweetModel},{userModel})
-            // 
-        // })
-    // }
+            response.render("profile.ejs",{mytweet,username,userCity})
+            
+        })
+    }

@@ -91,6 +91,7 @@ exports.authenticate = (request, response) => {
         const user = {
           id: result[0].id,
           username: result[0].pseudo,
+          city :result[0].city,
           exp: MAXAGE
         };
   
@@ -102,6 +103,7 @@ exports.authenticate = (request, response) => {
           request.user = {
             id: result[0].id,
             username: result[0].pseudo,
+            city: result[0].city
           };
           
            response.cookie('authcookie', token, { maxAge: MAXAGE });

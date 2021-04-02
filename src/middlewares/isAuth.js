@@ -10,7 +10,7 @@ const isAuth = (request, response, next) => {
     if (error) {
       response.send(error.message);
     } else {
-      const { id, username, exp } = user;
+      const { id, username, city,exp } = user;
 
       // Useless or not ?!
       if (Date.now() / 1000 >= exp) {
@@ -18,7 +18,7 @@ const isAuth = (request, response, next) => {
         response.send("Session expired. Try to reconnect you.");
       }
 
-      request.user = { id, username };
+      request.user = { id, username,city };
       next();
     }
   })

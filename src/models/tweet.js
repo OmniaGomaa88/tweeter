@@ -27,16 +27,16 @@ exports.CreatNewTweet=(id,text,callback)=>{
     })
 }
 // ..........
-    // exports.getUserTweets=(username,callback)=>{
-        // db.query(`SELECT *,pseudo from tweet right join user on tweet.author_id = user.id
-        //   where user.pseudo = "${username}" `,(error,result)=>{
-// if(erro){
-    // console.log("error:",error);
-    // callback(error,null);
-    // return;
-// }
-// callback(null,result)
-// console.log(result)
-        // })
-    // }
+    exports.getUserTweets=(username,callback)=>{
+        db.query(`SELECT * from tweet inner join user on tweet.author_id = user.id
+         where user.pseudo = "${username}" `,(error,result)=>{
+if(error){
+ console.log("error:",error);
+ callback(error,null);
+    return;
+}
+callback(null,result)
+console.log(result)
+        })
+    }
    

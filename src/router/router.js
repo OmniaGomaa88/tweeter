@@ -13,7 +13,7 @@ routeur.get("/signup",userController.signup)
 // routeur for post information in signup
 routeur.post("/signup",userController.newUser)
 // rout pour myTweet
-// routeur.get('/myTweet/:username',tweetsController.findUserTweets)
+routeur.get('/myTweet',isAuth,tweetsController.findUserTweets)
 routeur.get("/logout",userController.logout)
 // router for get login page
 
