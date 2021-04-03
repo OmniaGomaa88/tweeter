@@ -22,21 +22,34 @@ exports.CreatNewTweet=(id,text,callback)=>{
             callback(error, null);
             return;
         }
-        console.log(result)
+        // console.log(result)
         callback(null, result);
     })
 }
-// ..........
+// gits user tweets
     exports.getUserTweets=(username,callback)=>{
-        db.query(`SELECT * from tweet inner join user on tweet.author_id = user.id
-         where user.pseudo = "${username}" `,(error,result)=>{
+        db.query(`SELECT tweet.id,tweet.text,tweet.creation_date,user.pseudo,user.city
+         from tweet inner join user on tweet.author_id = user.id where user.pseudo = "${username}"`,(error,result)=>{
 if(error){
  console.log("error:",error);
  callback(error,null);
     return;
 }
 callback(null,result)
-console.log(result)
+ console.log(result)
+        })
+    }
+    // delet tweets
+    exports.delet=(id,callback)=>{
+        db.query(`DELETE FROM tweet
+        WHERE tweet.id ="${id}";`,(error,result)=>{
+            if(error){
+                console.log("error:",error)
+                callback(error,null)
+                return
+            }
+            callback(null,result)
+            // console.log("the result of delet",result)
         })
     }
    

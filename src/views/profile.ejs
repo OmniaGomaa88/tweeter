@@ -16,7 +16,7 @@
     <div class="tweet-navigation">
       <img class="tweet-navigation-image" src="/images/logoTwitter.png" alt="">
       <div class="tweet-navigation-link">
-        <a href="/">
+        <a href="/home">
           <img src="/images/home-run.png" alt="">
           <h2>Home</h2>
         </a>
@@ -59,6 +59,10 @@
 
       <div class="comments">
         <% mytweet.forEach((tweet) => { %>
+        <a href="/tweet/delet/<%tweet.id%>">  <img  src="./images/delete.svg" 
+          alt="icon delet" style="width: 5%;" ></a>
+          <img src="./images/edit.svg"
+           alt="icon edit" style="width: 5%;">
         <div class="comments-comment">
           <a href="/username"><img src="" alt=""></a>
           <div class="comments-comment-content">
@@ -70,6 +74,9 @@
             </div>
             <p class="comments-comment-content-text"><%= tweet.text %></p>
           </div>
+        </div>
+        <div>
+          
         </div>
         <%})%>
       </div>

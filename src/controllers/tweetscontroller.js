@@ -53,3 +53,16 @@ exports.findAllTweets=(request,response)=>{
             
         })
     }
+    // function to delet un tweet
+    exports.DeletUntweet=(request,response)=>{
+    const id=request.params.id
+    console.log("the id of tweet",id)
+    tweetModel.delet(id,(error,theTweet)=>{
+        if (error){
+            response.send(error.massege)
+         }
+        
+        // render vers le viwe ejs avec le les tweets
+        response.redirect("/tweet/delet/",{id})
+    })
+    }

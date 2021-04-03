@@ -1,5 +1,5 @@
 const mysql = require("mysql2");
-const db= mysql.createConnection({
+ const db= mysql.createConnection({
     host:"localhost",
     socketPath:"/home/simplon/.config/Local/run/zZyCPrE49/mysql/mysqld.sock",
     user: "root",
