@@ -59,8 +59,16 @@
 
       <div class="comments">
         <% mytweet.forEach((tweet) => { %>
+       
           <a href="/myTweet/delete/<%=tweet.id%>"><img src="./images/delete.svg"  style="width: 5%;" alt="" ></a>
-          <img src="./images/edit.svg" alt="icon edit" style="width: 5%;">
+          <img src="./images/edit.svg" alt="icon edit" style="width: 5%;" id="edit">
+          <form action="/editTweet/<%=tweet.id%>" method="post" id="FormText" style="display: none;" >
+            <textarea id="text" name="text" rows="4" cols="50">
+             please enter your text here...
+              </textarea>
+              <br><br>
+              <input type="submit" value="Submit" id="submit">
+            </form>
         <div class="comments-comment">
           <a href="/username"><img src="./images/avatar.png" alt=""></a>
           <div class="comments-comment-content">
@@ -74,8 +82,8 @@
           </div>
         </div>
         <div>
-          
         </div>
+       
         <%})%>
       </div>
       
@@ -84,6 +92,29 @@
     <div class="tweet-search"></div>
 
   </section>
+  <script>
+    const editForms =Array.from(document.querySelectorAll("#FormText")) 
+    const edits = Array.from(document.querySelectorAll("#edit")) 
+    const submits =Array.from(document.querySelectorAll("#submit"))
+    edits.forEach(edit=>{
+     edit.addEventListener("click",function(){
+      editForms.forEach(editForm=>{
+        editForm.style.display="block"
+      })
+     
+    })
+   
+    })
+    // 
+    submits.forEach(submit=>{
+      submit.addEventListener("click",function(){
+        editForms.forEach(editForm=>{
+        editForm.style.display="block"
+      })
+    })
+    })
+   
+  </script>
 </body>
 
 </html>

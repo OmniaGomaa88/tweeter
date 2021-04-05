@@ -48,6 +48,20 @@ callback(null,result)
             if(error){
                 console.log("error:",error)
                 callback(error,null)
+                return;
+            }
+            callback(null,result)
+             console.log("the result of delet",result)
+        })
+    }
+    // ubdate tweet
+    exports.update=(textId,text,callback)=>{
+        db.query(`UPDATE tweet
+        SET text = "${text}"
+        WHERE id ="${textId}"; `,(error,result)=>{
+            if(error){
+                console.log("error:",error)
+                callback(error,null)
                 return
             }
             callback(null,result)

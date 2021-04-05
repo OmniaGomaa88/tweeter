@@ -70,3 +70,17 @@ exports.findAllTweets=(request,response)=>{
         response.redirect("/myTweet")
     })
     }
+    // 
+   exports.updateTweet=(request,response)=>{
+    const {id}=request.params
+    const text= request.body.text
+    console.log("the id of tweet",id,"the new text is",text)
+    tweetModel.update(id,text,(error,theTweet)=>{
+        if (error){
+            response.send(error.massege)
+         }
+        
+        // render vers le viwe ejs avec le  tweet
+        response.redirect("/myTweet")
+    })
+    }
