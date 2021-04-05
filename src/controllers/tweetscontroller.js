@@ -4,7 +4,7 @@ const userController=require("../controllers/userController")
 const tweetModel=require("../models/tweet")
 const userModel = require("../models/user")
 
-// ..
+// .. function to get all users tweets and show it in home page
 
 exports.findAllTweets=(request,response)=>{
     const  {user}=request
@@ -20,7 +20,7 @@ exports.findAllTweets=(request,response)=>{
 
     }
   
-
+// function to add new tweet
     exports.newTweet= (request,response)=>{
         const id =  request.user.id
          
@@ -37,10 +37,10 @@ exports.findAllTweets=(request,response)=>{
                     
                  })
             } 
-      // function to creat new tweet
+     
  
 
-    // .............
+    // function to get tweet by user name qnd show it in the profile of the user
     exports.findUserTweets=(request,response)=>{
          const username=request.user.username
          const userCity=request.user.city
@@ -70,7 +70,7 @@ exports.findAllTweets=(request,response)=>{
         response.redirect("/myTweet")
     })
     }
-    // 
+    // to update tweet
    exports.updateTweet=(request,response)=>{
     const {id}=request.params
     const text= request.body.text

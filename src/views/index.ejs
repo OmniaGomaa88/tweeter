@@ -62,17 +62,17 @@
       
       <% tweets.forEach((tweet) => { %>
       <div class="comments">
-        <div class="comments-comment">
+        <div class="comments-comment" style="background-color: aliceblue; color: black;" >
           <a href="/myTweet"><img src="./images/avatar.png" alt=""></a>
           <div class="comments-comment-content">
             <div class="comments-comment-content-nameDate">
               <a href="/userProfile/<%=tweet.pseudo%>">
                
-                <h3 class="comments-comment-content-username"> <%= tweet.pseudo %></h3>
+                <h3 class="comments-comment-content-username" style="color: rgb(67, 85, 117) ;"> <%= tweet.pseudo %></h3>
               </a>
               <span class="comments-comment-content-date"><%= tweet.creation_date%></span>
             </div>
-            <p class="comments-comment-content-text"><%= tweet.text %></p>
+            <p class="comments-comment-content-text" ><%= tweet.text %></p>
             
           </div>
         </div>

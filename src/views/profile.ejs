@@ -59,26 +59,30 @@
 
       <div class="comments">
         <% mytweet.forEach((tweet) => { %>
-       
+       <!-- delet and edite buttons -->
+      <div style="background-color: rgb(67, 85, 117) " >
           <a href="/myTweet/delete/<%=tweet.id%>"><img src="./images/delete.svg"  style="width: 5%;" alt="" ></a>
           <img src="./images/edit.svg" alt="icon edit" style="width: 5%;" id="edit">
+      </div>
+          <!-- form of edit hidden by difault -->
           <form action="/editTweet/<%=tweet.id%>" method="post" id="FormText" style="display: none;" >
-            <textarea id="text" name="text" rows="4" cols="50">
-             please enter your text here...
+            <textarea id="text" name="text" rows="4" cols="50" style="width: 100%; height: 100%;">
               </textarea>
-              <br><br>
-              <input type="submit" value="Submit" id="submit">
+              <input type="submit" value="Submit" id="submit" style=" background-color: white; 
+              color: black; 
+              border: 2px solid #008CBA; float: right;"><br><br>
             </form>
-        <div class="comments-comment">
+            <!-- coments -->
+        <div class="comments-comment" style="background-color: aliceblue; color: black;">
           <a href="/username"><img src="./images/avatar.png" alt=""></a>
           <div class="comments-comment-content">
             <div class="comments-comment-content-nameDate">
               <a href="/username">
-                <h3 class="comments-comment-content-username"><%=username%></h3>
+                <h3 class="comments-comment-content-username" style="color: rgb(67, 85, 117) ;"><%=username%></h3>
               </a>
               <span class="comments-comment-content-date"><%= tweet.creation_date %></span>
             </div>
-            <p class="comments-comment-content-text"><%= tweet.text %></p>
+            <p class="comments-comment-content-text"><%= tweet.text %></p><br>
           </div>
         </div>
         <div>
@@ -92,6 +96,7 @@
     <div class="tweet-search"></div>
 
   </section>
+  <!-- script to show form of edite -->
   <script>
     const editForms =Array.from(document.querySelectorAll("#FormText")) 
     const edits = Array.from(document.querySelectorAll("#edit")) 

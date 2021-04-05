@@ -6,6 +6,11 @@ const tweetModel=require("../models/tweet")
 const userModel=require("../models/user")
 const SECRET = "motSecret";
 const MAXAGE = Math.floor(Date.now() / 1000) + (60 * 60);
+// getting login page
+exports.loginPage=(request,response)=>{
+  response.render("login.ejs")
+  
+  }
 // signup function to render to signup page
 exports.signup=(request,response)=>{
 response.render("signup.ejs")
@@ -34,7 +39,7 @@ exports.newUser=(request,response)=>{
    
         else {
             const saltRounds = 10;
-
+// hashing the password
             bcrypt.hash(password, saltRounds, (error, hash) => {
               if (error) {
                 response.send(error.message);
@@ -56,17 +61,13 @@ exports.newUser=(request,response)=>{
                   response.send(error.message);
                 }
            
-                response.send("you have successfully signup");
+                response.redirect("/");
               })
             })
           }
         });
    }
-// getting login page
-exports.loginPage=(request,response)=>{
-response.render("login.ejs")
 
-}
 // function to make login
 exports.authenticate = (request, response) => {
   const { username,password } = request.body;
