@@ -7,7 +7,7 @@ const userModel = require("../models/user")
 // ..
 
 exports.findAllTweets=(request,response)=>{
-    const {user}=request
+    const  {user}=request
     tweetModel.GetAllTweets((error,tweets)=>{
         if (error){
             response.send(error.message)
@@ -19,6 +19,8 @@ exports.findAllTweets=(request,response)=>{
     })
 
     }
+  
+
     exports.newTweet= (request,response)=>{
         const id =  request.user.id
          
@@ -53,16 +55,18 @@ exports.findAllTweets=(request,response)=>{
             
         })
     }
+    // 
+   
     // function to delet un tweet
     exports.DeletUntweet=(request,response)=>{
-    const id=request.params.id
+    const {id}=request.params
     console.log("the id of tweet",id)
     tweetModel.delet(id,(error,theTweet)=>{
         if (error){
             response.send(error.massege)
          }
         
-        // render vers le viwe ejs avec le les tweets
-        response.redirect("/tweet/delet/",{id})
+        // render vers le viwe ejs avec le  tweet
+        response.redirect("/myTweet")
     })
     }

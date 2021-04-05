@@ -17,7 +17,7 @@ routeur.post("/signup",userController.newUser)
 routeur.get('/myTweet',isAuth,tweetsController.findUserTweets)
 routeur.get("/logout",userController.logout)
 // to post delet
-routeur.delete("/tweet/delet/:id",tweetsController.DeletUntweet)
+routeur.get("/myTweet/delete/:id",isAuth,tweetsController.DeletUntweet)
 
 // router for login utilisatuer
 routeur.post("/login",userController.authenticate)

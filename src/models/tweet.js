@@ -1,7 +1,7 @@
 const bodyParser = require("body-parser");
 const db=require("../db");
 exports.GetAllTweets=(callback)=>{
-    db.query(`SELECT tweet.creation_date,tweet.text,user.pseudo FROM tweet inner JOIN user on tweet.author_id = user.id limit 200`,(error,result)=>{
+    db.query(`SELECT tweet.creation_date,tweet.text,user.pseudo FROM tweet inner JOIN user on tweet.author_id = user.id limit 20 offset 10`,(error,result)=>{
         if(error){
             console.log("error: ", error);
             callback(error, null);
@@ -39,17 +39,19 @@ callback(null,result)
  console.log(result)
         })
     }
+    // 
+   
     // delet tweets
     exports.delet=(id,callback)=>{
         db.query(`DELETE FROM tweet
-        WHERE tweet.id ="${id}";`,(error,result)=>{
+        WHERE id ="${id}";`,(error,result)=>{
             if(error){
                 console.log("error:",error)
                 callback(error,null)
                 return
             }
             callback(null,result)
-            // console.log("the result of delet",result)
+             console.log("the result of delet",result)
         })
     }
    

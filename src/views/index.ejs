@@ -63,14 +63,14 @@
       <% tweets.forEach((tweet) => { %>
       <div class="comments">
         <div class="comments-comment">
-          <a href="/username"><img src="" alt=""></a>
+          <a href="/myTweet"><img src="./images/avatar.png" alt=""></a>
           <div class="comments-comment-content">
             <div class="comments-comment-content-nameDate">
-              <a href="/username">
+              <a href="/userProfile/<%=tweet.pseudo%>">
                
                 <h3 class="comments-comment-content-username"> <%= tweet.pseudo %></h3>
               </a>
-              <span class="comments-comment-content-date">DATE</span>
+              <span class="comments-comment-content-date"><%= tweet.creation_date%></span>
             </div>
             <p class="comments-comment-content-text"><%= tweet.text %></p>
             

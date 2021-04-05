@@ -28,8 +28,8 @@
           <img src="/images/bookmark.png" alt="">
           <h2>Bookmarks</h2>
         </a>
-        <a href="/username">
-          <img src="/images/user.png" alt="">
+        <a href="">
+          <img src="./images/user.png" alt="">
           <h2>My Tweets</h2>
         </a>
         <a href="/logout">
@@ -59,12 +59,10 @@
 
       <div class="comments">
         <% mytweet.forEach((tweet) => { %>
-        <a href="/tweet/delet/<%tweet.id%>">  <img  src="./images/delete.svg" 
-          alt="icon delet" style="width: 5%;" ></a>
-          <img src="./images/edit.svg"
-           alt="icon edit" style="width: 5%;">
+          <a href="/myTweet/delete/<%=tweet.id%>"><img src="./images/delete.svg"  style="width: 5%;" alt="" ></a>
+          <img src="./images/edit.svg" alt="icon edit" style="width: 5%;">
         <div class="comments-comment">
-          <a href="/username"><img src="" alt=""></a>
+          <a href="/username"><img src="./images/avatar.png" alt=""></a>
           <div class="comments-comment-content">
             <div class="comments-comment-content-nameDate">
               <a href="/username">
